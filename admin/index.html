@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><?php _e($pageTitle) ?></title>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="../cdn/bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="../cdn/bootstrap/css/bootstrap-rtl.css"/>
+        <script type="text/javascript" src="../cdn/js/jquery-2.0.3.js"></script>
+        <link rel="stylesheet" href="../cdn/css/v3.css"/>
+        <meta name="description" content="<?php _e($pageDescript)?>" />
+        <meta name="keywords" content="<?php _e(implode(" />
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/>
+    </head>
+    <body>
+        <div class="warp">
+            <div class="header">
+                <div class="logo">
+                    <a href="#">فـَـــارِسْ</a>
+                    <br/>
+                    <br/>
+                    <span>" غريبُ وَطَنْ "</span>
+                </div>
+            </div>
+            <div class="underHeader">
+                <div style="float: right;">
+                    <ol class="breadcrumb" style="background: #F9F9F9;font-size: 12px;">
+                        <li><a href="<?php _e(SITE_URL) ?>">الواجهة</a></li>
+                        <li><a href="<?php _e(SITE_URL)?>/?page=cp">لوحة التحكم</a></li>
+                        <li class="active"><?php _e($pageTitle) ?></li>
+                    </ol>
+                </div>
+                <form action="login.php?action=logout" method="post" style="float: left">
+                    <button class="btn btn-danger" name="logout" value="yes">خروج</button>
+                </form>
+            </div>
+            <div class="body">
+                أهلًا
+            </div>
+            <div class="footer"></div>
+            <script src="<?php _e(SITE_URL)?>/cdn/bootstrap/js/bootstrap.js"></script>
+            <script type="text/javascript">
+                $(function (){
+                    $(".tooltip_show").tooltip('hide');
+                    $(".social_tooltip").tooltip('hide');
+                })
+            </script>
+        </div>
+    </body>
+</html>
