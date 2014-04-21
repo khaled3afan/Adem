@@ -1,0 +1,210 @@
+/* 
+    Created on : 20/02/2014, 05:11:51 م
+    Author     : Fares AlBelady
+*/
+@import url(https://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+body {
+    font-family: Droid Arabic Naskh !important;
+    background: #F9F9F9;
+}
+h1 , h2 , h3 , h4 , h5 , h6 {
+    font-family: Droid Arabic Naskh !important;
+}
+/* HEADER */
+.header {
+    width: 100%;
+    background: url("img/pattern.png");
+    color: #FFF;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.logo{
+}
+.undisplay {
+    display: none;
+}
+.logo a {
+    font-size: 40px;
+    color: #FFF;
+}
+/* BODY */
+.body {
+    margin: 50px auto 0px auto;
+    width: 90%;
+}
+.admin_body {
+    padding: 10px;
+    margin: 0px auto 0px auto;
+    width:70%;
+}
+/* FOOTER */
+.footer {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+/*OTHER*/
+.underHeader {
+    width: 90%;
+    margin: 10px auto 10px auto;
+}
+.panels {
+    width: 60%;
+    margin: 0px auto 0px auto;
+    text-align: center;
+}
+.panel-body {
+    text-align: right;
+}
+.panel-default {
+    background: #F8F8F8;
+}
+.social {
+    margin: 30px auto 0px auto;
+    text-align: center;
+}
+.social a {
+    margin: 0px 10px 0px 10px;
+}
+.social a:hover {
+    text-decoration: none;
+}
+/* LOGIN PAGE */
+.loginPage {
+    width: 400px;
+    margin: 0px auto 0px auto;
+    text-align: center;
+}
+
+/* CP ADMIN */
+.content {
+    background: #FFF;
+    border-left: 2px #c9302c solid;
+    border-right: 2px #c9302c solid;
+    border-bottom: 1px #c9302c solid;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 30px;
+}
+.forms {
+    width: 100%;
+}
+.cpForm {
+    width: 50%;
+}
+.ajax-loading {
+    font-size: 12px;
+    margin-right: 10px;
+    background: #CCCCCC;
+    padding: 2px;
+    border-radius: 10px;
+    display: none;
+}
+.ajax-result {
+    display: none;
+    margin-top: 10px;
+}
+.editContent {
+    margin-top: 30px;
+}
+.editForms {
+    margin-top: 20px;
+}
+.cpImportant {
+    color: #D9534F;
+    font-size: 15px;
+}
+#updatesForm {
+    display: none;
+}
+#delete-form {
+    display: none;
+}
+#up_infoContent {
+    width: 100%;
+}
+/* MEDIA */
+@media only screen and (min-width: 768px) and (max-width: 959px){
+    body {
+        width: 100%;
+    }
+    .panels {
+        width: 100%;
+    }
+    #loginForm {
+        width: 100%;
+    }
+    .admin_body {
+        width: 90%;
+    }
+    .cpForm {
+    width: 90%;
+    }
+    textarea {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px){
+    .panels {
+        width: 100%;
+    }
+    #loginForm {
+        width: 100%;
+    }
+    .admin_body {
+        width: 90%;
+    }
+    body {
+        width: 100%;
+    }
+    .cpForm {
+    width: 90%;
+    }
+    #up_infoContent {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 600px){
+    .social a {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    .panels {
+        width: 100%;
+    }
+    #loginForm {
+        width: 100%;
+    }
+    .admin_body {
+        width: 90%;
+    }
+    body {
+        width: 100%;
+    }
+    .cpForm {
+    width: 90%;
+    }
+    #up_infoContent {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 980px) and (max-width: 1280px){
+    .panels {
+        width: 80%;
+    }
+    #loginForm {
+        width: 100%;
+    }
+    .admin_body {
+        width:90%;
+    }
+    body {
+        width: 100%;
+    }
+    .cpForm {
+    width: 100%;
+    }
+}
+    
