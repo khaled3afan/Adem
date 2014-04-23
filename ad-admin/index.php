@@ -13,7 +13,7 @@ if(is_admin()){
         if(is_file($page) && file_exists($page)){
             include $page;
         }else{
-            $view = new AD_View(THEME_NAME,"../ad-content\ad-themes");
+            $view = new AD_View(THEME_NAME,"../ad-content/ad-themes");
             $view->view("404",array(
                 "title"=>"تعذر وجود الصفحة المطلوبة.",
                 "key"=>array(),
@@ -24,7 +24,7 @@ if(is_admin()){
     }else{
         
         $view = new AD_View(null,"ad-admin-style");
-        $view->view("vhome",array(
+        $view->view("vHome",array(
             "title"=>"لوحة التحكم",
             "key"=>array(),
             "Des"=>""

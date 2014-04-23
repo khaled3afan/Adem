@@ -10,11 +10,11 @@
 
 define("ASB_PATH",__DIR__);
 
-include ASB_PATH."\db.php";
-include ASB_PATH."\ad-includes\class.AD_AutoLoader.php";
+include ASB_PATH.DIRECTORY_SEPARATOR."db.php";
+include ASB_PATH.DIRECTORY_SEPARATOR."ad-includes".DIRECTORY_SEPARATOR."class.AD_AutoLoader.php";
 include ASB_PATH.DIRECTORY_SEPARATOR."ad-includes".DIRECTORY_SEPARATOR."function.php";
 
-$a = new AD_AutoLoader(ASB_PATH."\ad-includes");
+$a = new AD_AutoLoader(ASB_PATH.DIRECTORY_SEPARATOR."ad-includes");
 $DB_Define = new AD_Query;
 
 /* رابط الموقع */

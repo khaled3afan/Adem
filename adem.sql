@@ -57,23 +57,16 @@ CREATE TABLE IF NOT EXISTS `settings` (
 -- 
 
 INSERT INTO `settings` (`sid`, `sett_name`, `sett_value`) VALUES
-(1, 'site_url', 'YOUR SITE URL - improtant!'),
+(1, 'site_url', 'ضع رابط موقع هنا . - put your website url here'),
 (2, 'site_name', ''),
 (3, 'site_descrip', ''),
 (4, 'google_code', ''),
 (5, 'email', ''),
--- استخدم MD5(MD5(كلمة المرور الخاصة بك))) 
--- كيف؟
--- توجه إلى هذا الموقع :
--- http://writecodeonline.com/php/
--- قم بكتابة الكود التالي :
--- echo md5(md5(yourpassword));
--- سوف تظهر لك كلمة المرور المشفرة في الأسفل انسخها وضعها في الفراغ .
-(6, 'password', ''),
+(6, 'password', '8a8e83876e81242bee8a620b2967dc33'),
 (9, 'site_keywords', ''),
-(8, 'visits', '243'),
+(8, 'visits', ''),
 (7, 'last_login', ''),
-(10, 'theme_name', 'google');
+(10, 'theme_name', 'default');
 
 -- --------------------------------------------------------
 

@@ -2,7 +2,7 @@
 session_start();
 
 include './ad-define.php';
-include ASB_PATH."\ad-includes\libs\PHPMailer\PHPMailerAutoload.php";
+include ASB_PATH.DIRECTORY_SEPARATOR."ad-includes".DIRECTORY_SEPARATOR."libs".DIRECTORY_SEPARATOR."PHPMailer".DIRECTORY_SEPARATOR."PHPMailerAutoload.php";
 $view = new AD_View(null,"ad-admin/ad-admin-style");
 
 $loginDB = new AD_Query();
@@ -199,8 +199,8 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                         ));
                     }
                 }else{
-                    echo $_SESSION['auth_reset'];
-                    //header("location: ".SITE_URL."");;
+				
+                    header("location: ".SITE_URL."");;
                 }
             }else{
                 header("location: ".SITE_URL."/user/login");;

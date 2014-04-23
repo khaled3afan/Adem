@@ -1,5 +1,5 @@
 <?php
-include './ad-Define.php';
+include './ad-define.php';
 
 
 if(isset($_GET['p'])){
