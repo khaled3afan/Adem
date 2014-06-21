@@ -1,7 +1,7 @@
 Adem - أديم 
 ===============
 - **Coder** : [Fares AlBelady] (https://gitHub.com/4FBS)
-- **Version** : 0.5.1
+- **Version** : 0.5.2
 - **كاتب الشفرة** : [ فارس البلادي ] (https://gitHub.com/4FBS)
 - **النسخة** : 0.5.1
 
