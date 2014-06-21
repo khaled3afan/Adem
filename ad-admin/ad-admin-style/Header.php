@@ -20,8 +20,6 @@ $siteDescrip = $db->getSettingVal("site_descrip");
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
         <script type="text/javascript" src="<?php _e(SITE_URL) ?>/ad-admin/cdn/js/ajax.js"></script>
         <link rel="stylesheet" href="<?PHP _e(SITE_URL)?>/ad-admin/cdn/css/v3.css"/>
-        <meta name="description" content="<?php _e($pDes)?>" />
-        <meta name="keywords" content="<?php _e($pKey);?>" />
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/>
         <script type="text/javascript" src="<?PHP _e(SITE_URL)?>/ad-admin/cdn/js/tinymce/tinymce.min.js"></script>
         <script type="text/javascript">
