@@ -1,0 +1,46 @@
+/* 
+    Created on : 07/06/2014, 03:09:56 ص
+    Author     : Fares AlBelady
+*/
+@import "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css";
+@import "../ad-admin/cdn/bootstrap/css/bootstrap-rtl.min.css";
+
+body {
+    background: #F9F9F9;
+    font-size: 17px;
+}
+label {
+    font-size: 17px;
+}
+
+#warp {
+    width: 50%;
+    margin: 40px auto 0px auto;
+}
+.header {
+    text-align: center;
+}
+.footer {
+    text-align: center;
+    margin: 30px auto 40px auto;
+}
+.installer-box {
+    width: 70%;
+    margin:30px auto 0px auto;
+    background: #F1F1F1;
+    border-radius: 5px;
+    padding: 20px;
+}
+.form-group {
+    width: 100%;
+}
+.note {
+    font-size: 13px;
+    color: #990000;
+}
+.done {
+    text-align: center;
+}
+.note:before {
+    content: " * ";
+}

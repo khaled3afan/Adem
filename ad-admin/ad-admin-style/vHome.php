@@ -2,12 +2,7 @@
 $DB_HOME = new AD_Query;
 ?>
 <div class="admin_body">
-    <ul class="nav nav-tabs">
-        <li class="active"><a href="<?php _e(SITE_URL)?>/ad-admin/">أهلًا!</a></li>
-        <li><a href="<?php _e(SITE_URL)?>/ad-admin/edit">بيانات الواجهة</a></li>
-        <li><a href="<?php _e(SITE_URL)?>/ad-admin/themes">القوالب</a></li> 
-        <li><a href="<?php _e(SITE_URL)?>/ad-admin/settings">الإعدادات</a></li>
-    </ul>
+    <?php admin_tabs("index") ?>
     <div class="content">
         <div class="tab-content">
             <div class="alert alert-warning"><h2>أهلًا بعودتك ..</h2></div>
@@ -16,7 +11,7 @@ $DB_HOME = new AD_Query;
                     <div class="thumbnail">
                         <div class="caption">
                             <h3>آخر مرة زرتني فيها ..</h3>
-                            <p class="text-danger">كانت في  : <span><?php _e(date("Y m d"));?></span></p>
+                            <p class="text-danger">كانت في  : <span dir="ltr"><?php echo $DB_HOME->getSettingVal("last_login") ?></span></p>
                         </div>
                     </div>
                 </div>

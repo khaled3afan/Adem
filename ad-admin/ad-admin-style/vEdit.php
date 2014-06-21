@@ -2,12 +2,7 @@
 $DB_edit = new AD_Query();
 ?>
 <div class="admin_body">
-    <ul class="nav nav-tabs">
-        <li><a href="<?php _e(SITE_URL)?>/ad-admin/">أهلًا!</a></li>
-        <li class="active"><a href="<?php _e(SITE_URL)?>/ad-admin/edit">بيانات الواجهة</a></li>
-        <li><a href="<?php _e(SITE_URL)?>/ad-admin/themes">القوالب</a></li> 
-        <li><a href="<?php _e(SITE_URL)?>/ad-admin/settings">الإعدادات</a></li> 
-    </ul>
+    <?php admin_tabs("edit") ?>
     <div class="content">
         <div class="tab-content">
             <ul class="nav nav-pills pull-right" style="font-size: 12px;">
@@ -64,7 +59,7 @@ $DB_edit = new AD_Query();
                     <hr/>
                     <div class="editForms">
                         <div class="cpForm">
-                            <img src="<?php _e(SITE_URL) ?>/cdn/css/img/ajax.GIF" style="display: none" id="info-loading"/>
+                            <img src="<?php _e(SITE_URL) ?>/ad-admin/cdn/css/img/ajax.GIF" style="display: none" id="info-loading"/>
                             <form id="updatesForm">
                                 <div class="form-group">
                                     <label for="infoName">اسم الحقل :</label>
@@ -92,7 +87,7 @@ $DB_edit = new AD_Query();
                             </form>
                             <form id="delete-form" class="pull-left">
                                 <button type="submit" name="delete" class="btn btn-danger" id="delete_id">حذف الحقل</button>
-                                <img src="<?php _e(SITE_URL) ?>/cdn/css/img/ajax.GIF" id="delete-loading" alt="جاري الحذف .." style="display: none;"/>
+                                <img src="<?php _e(SITE_URL) ?>/ad-admin/cdn/css/img/ajax.GIF" id="delete-loading" alt="جاري الحذف .." style="display: none;"/>
                                 <div class="ajax-result alert" id="delete-alert">خطأ</div>
                                 
                             </form>

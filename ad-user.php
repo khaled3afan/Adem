@@ -2,7 +2,6 @@
 session_start();
 
 include './ad-define.php';
-include ASB_PATH.DIRECTORY_SEPARATOR."ad-includes".DIRECTORY_SEPARATOR."libs".DIRECTORY_SEPARATOR."PHPMailer".DIRECTORY_SEPARATOR."PHPMailerAutoload.php";
 $view = new AD_View(null,"ad-admin/ad-admin-style");
 
 $loginDB = new AD_Query();
@@ -13,22 +12,31 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         
         /* login */
         case "login":
+            
+            
+            
             if(is_admin() == FALSE){
                 if(isset($_POST['password'])){
-                    $return = [];
                     if(!empty($_POST['password'])){
                         $post_password = clearPOST($_POST['password']);
                         $passINDB = $loginDB->getSettingVal("password");
                         $passwordMD5 = md5(md5($post_password));
                         
                         if($passwordMD5 == $passINDB){
+                            
+                            // Last LOGIN! 
+                            $loginDate = date("d / M / Y - H:m:s A",time());
+                            $_SESSION['loginDate'] = $loginDate;
+                            
                             // creat SESSION
                             $_SESSION['is_admin'] = "TRUE";
                             $_SESSION['logined'] = "TRUE";
                             $return['success'] = 1;
+                            
                             echo json_encode($return);
+                            
+                            
                             die;
-                            //header("location: ".SITE_URL."/ad-admin");
                         }else{
                             $return['success'] = 0;
                             $return['msg'] = "كلمة المرور المدخلة غير صحيحة .";
@@ -43,7 +51,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                     }
                 }
             }else{
-                header("location: ".SITE_URL."/ad-admin");
+                header("location: ".SITE_URL."/ad-admin/");
             }
             // view
             $view->view("login",array(
@@ -59,6 +67,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                 if(is_admin() == TRUE){
                     if(session_destroy()){
                         $logout_Messge = TRUE;
+                        $loginDB->DB_Query("UPDATE settings SET sett_value='".$_SESSION['loginDate']."' WHERE sett_name='last_login'");
                         $view->set("logout_Messge",$logout_Messge);
                     }else{
                         $logout_Messge = FALSE;
@@ -83,6 +92,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                 $lost_password = clearPOST($_POST['lost_password']);
                 $return = [];
                 if(!empty($lost_password)){
+                    include ASB_PATH.DIRECTORY_SEPARATOR."ad-includes".DIRECTORY_SEPARATOR."libs".DIRECTORY_SEPARATOR."PHPMailer".DIRECTORY_SEPARATOR."PHPMailerAutoload.php";
                     $getEmail = $loginDB->getSettingVal("email");
                     if($lost_password == $getEmail){
                         
@@ -94,14 +104,14 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                         $_SESSION['auth_reset'] = $token;
                         
                         
-                        $mail = new PHPMailer();
-                        $mail->IsSMTP();
-                        $mail->SMTPAuth = true; 
-                        $mail->SMTPSecure = "ssl"; 
-                        $mail->Host = MAIL_SMTP; 
-                        $mail->Port = 465;
-                        $mail->Username = $_RESET_EMAIL_SEND_FROM; 
-                        $mail->Password = $_RESET_EMAIL_PASSWORD;  
+                        $mail = new PHPMailer(true);
+                        $mail->IsMail();
+                        //$mail->SMTPAuth = true; 
+                        //$mail->SMTPSecure = "ssl"; 
+                        //$mail->Host = "localhost"; 
+                        //$mail->Port = 465;
+                        //$mail->Username = $_RESET_EMAIL_SEND_FROM; 
+                        //$mail->Password = $_RESET_EMAIL_PASSWORD;  
                         $mail->CharSet = 'UTF-8';
                         $mail->AddAddress($getEmail);
                         $mail->SetFrom($_RESET_EMAIL_SEND_FROM,"سكربت أديم");
@@ -126,21 +136,25 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                             $return['success'] = 0;
                             $return['msg'] = "آسف يا سيدي ، حدث خطأ في الاتصال بالخادم .. أرجو المحاولة مرة أخرى .";
                             echo json_encode($return);
+                            die;
                         }else{
                             $return['success'] = 1;
                             $return['msg'] = "رائع .. تم إرسال الرسالة بنجاح!";
                             echo json_encode($return);
+                            die;
                         }
                         
                     }else{
                         $return['success'] = 0;
                         $return['msg'] = "المعذرة ، البريد المدخل غير موجود بقاعدة البيانات .";
                         echo json_encode($return);
+                        die;
                     }
                 }else{
                     $return['success'] = 0;
                     $return['msg'] = "أرجو منك يا سيدي إدخال البريد الاكتروني .. كي أستطيع خدمتك! :)";
                     echo json_encode($return);
+                    die;
                 }
             }elseif(isset($_REQUEST['reset']) && $_REQUEST['reset'] == "password"){
                 if(isset($_REQUEST['auth']) && $_REQUEST['auth'] == $_SESSION['auth_reset']){
@@ -164,6 +178,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                                             $return['msg'] = "مبارك! تم تغيير كلمة المرور .. مرحبًا بك يا سيدي مرة أخرى !";
                                             unset($_SESSION['auth_reset']);
                                             echo json_encode($return);
+                                            die;
                                         }else{
                                             $return['success'] = 0;
                                             $return['msg'] = "آسف يا سيدي ، حدث خطأ في آخر اللحظات .. أيمكنك إعادة المحاولة مرة أخرى في وقت لاحق؟";

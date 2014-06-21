@@ -1,11 +1,6 @@
 <?php include 'vCpHeader.php';?>
 <div class="admin_body">
-    <ul class="nav nav-tabs">
-        <li><a href="<?php _e(SITE_URL)?>/ad-admin/">أهلًا!</a></li>
-        <li><a href="<?php _e(SITE_URL)?>/ad-admin/edit">بيانات الواجهة</a></li>
-        <li><a href="<?php _e(SITE_URL)?>/ad-admin/themes">القوالب</a></li> 
-        <li class="active"><a href="<?php _e(SITE_URL)?>/ad-admin/settings">الإعدادات</a></li>
-    </ul>
+    <?php admin_tabs("settings") ?>
     <div class="content">
         <div class="tab-content">
             <div class="forms">

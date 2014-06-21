@@ -7,7 +7,7 @@
                             <input type="password" class="form-control" placeholder="أدخل كلمة المرور" name="password" id="password_login"/>
                         </div>
                         <button type="submit" class="btn btn-primary" name="login" value="yes">دخول</button>&nbsp;
-                        <img src="<?php echo SITE_URL?>/ad-admin/ad-admin-style/cdn/css/img/ajax.GIF" class="ajax-result" id="login_loading"/><br/>
+                        <img src="<?php echo SITE_URL?>/ad-admin/cdn/css/img/ajax.GIF" class="ajax-result" id="login_loading"/><br/>
                         <!--<span style="font-size: 12px;float: right"><a href="<?php _e(SITE_URL)?>/user/lost_password" title="إعادة تعيين كلمة المرور">نسيت كلمة المرور؟</a></span>-->
                         <span style="font-size: 12px;float: right"><a id="show_lost_password_page" title="إعادة تعيين كلمة المرور" href="javascript::void(0)">نسيت كلمة المرور؟</a></span>
                     </form>
@@ -26,7 +26,7 @@
                             <input type="email" class="form-control" placeholder="أدخل البريد الالكتروني" name="lost_password" id="lost_password"/>
                         </div>
                         <button type="submit" class="btn btn-primary" name="login" value="yes">إرسال</button>&nbsp;
-                        <img src="<?php echo SITE_URL?>/ad-admin/ad-admin-style/cdn/css/img/ajax.GIF" class="ajax-result" id="lost_password_loading"/>
+                        <img src="<?php echo SITE_URL?>/ad-admin/cdn/css/img/ajax.GIF" class="ajax-result" id="lost_password_loading"/>
                     </form>
                 </div>
             </div>

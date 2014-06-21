@@ -16,21 +16,20 @@ $siteDescrip = $db->getSettingVal("site_descrip");
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="<?PHP _e(SITE_URL)?>/ad-admin/ad-admin-style/cdn/bootstrap/css/bootstrap-rtl.css"/>
+        <link rel="stylesheet" href="<?PHP _e(SITE_URL)?>/ad-admin/cdn/bootstrap/css/bootstrap-rtl.css"/>
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-        <script type="text/javascript" src="<?php _e(SITE_URL) ?>/ad-admin/ad-admin-style/cdn/js/ajax.js"></script>
-        <link rel="stylesheet" href="<?PHP _e(SITE_URL)?>/ad-admin/ad-admin-style/cdn/css/v3.css"/>
+        <script type="text/javascript" src="<?php _e(SITE_URL) ?>/ad-admin/cdn/js/ajax.js"></script>
+        <link rel="stylesheet" href="<?PHP _e(SITE_URL)?>/ad-admin/cdn/css/v3.css"/>
         <meta name="description" content="<?php _e($pDes)?>" />
-        <meta name="keywords" content="<?php _e(implode(",",$pKey));?>" />
+        <meta name="keywords" content="<?php _e($pKey);?>" />
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/>
-        <script type="text/javascript" src="<?PHP _e(SITE_URL)?>/ad-admin/ad-admin-style/cdn/js/tinymce/tinymce.min.js"></script>
+        <script type="text/javascript" src="<?PHP _e(SITE_URL)?>/ad-admin/cdn/js/tinymce/tinymce.min.js"></script>
         <script type="text/javascript">
         tinymce.init({
             selector: ".textEditor",
             language : 'ar',
             plugins: [
                 "textcolor",
-                "arphp",
                 "advlist",
                 "autolink",
                 "lists",
@@ -50,11 +49,14 @@ $siteDescrip = $db->getSettingVal("site_descrip");
                 "fullscreen",
                 "paste",
             ],
-        toolbar: "forecolor backcolor insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-         entity_encoding : "raw",
-         directionality : 'rtl',
-         width:"800px",
-         height:"350px"
+            theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
+            font_size_style_values: "12px,13px,14px,16px,18px,20px",
+            toolbar: "forecolor backcolor insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | sizeselect | bold italic | fontselect |  fontsizeselect",
+            entity_encoding : "raw",
+            directionality : 'rtl',
+            width:"800px",
+            height:"350px",
+            content_css : "<?php echo SITE_URL ?>/ad-admin/cdn/js/tinymce/tiny-box-style.css"
     });
         </script>
     </head>
@@ -62,9 +64,9 @@ $siteDescrip = $db->getSettingVal("site_descrip");
         <div class="warp">
             <div class="header">
                 <div class="logo">
-                    <a href="<?php _e(SITE_URL) ?>"><?php _e($siteName) ?></a>
+                    <a href="<?php echo SITE_URL ?>"><?php echo $siteName ?></a>
                     <br/>
                     <br/>
-                    <span><?php _e($siteDescrip) ?></span>
+                    <span><?php echo $siteDescrip ?></span>
                 </div>
             </div>

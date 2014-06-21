@@ -127,6 +127,34 @@ h1 , h2 , h3 , h4 , h5 , h6 {
 #up_infoContent {
     width: 100%;
 }
+
+.boxs {
+    width: 80%;
+    margin: 0px auto 0px auto;
+}
+
+.post_content , .box_content {
+    line-height: 25px;
+    font-size: 13px;
+    color: #p000;
+    text-align: justify
+}
+.post_info {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.post_info_icon {
+    margin-left: 5px;
+}
+.hr_small {
+    width: 50%;
+}
+.box_title {
+    margin:0px 0px 30px 0px;
+    font-family: Droid Arabic Naskh !important;
+}
 /* MEDIA */
 @media only screen and (min-width: 768px) and (max-width: 959px){
     body {

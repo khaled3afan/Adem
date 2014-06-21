@@ -1,25 +1,31 @@
 <?php
 include './ad-define.php';
-
-$view = new AD_View(THEME_NAME);
 $db = new AD_Query;
+$view = new AD_View(THEME_NAME);
+
 
 /* get INFO from DB */
-$info_query = "SELECT * FROM info ORDER BY `info_id` ASC  LIMIT 0,10";
-$info = $db->DB_Query($info_query);
+
+$info = $db->DB_Select("info",array(
+    "order"=>["info_id","ASC"],
+    "limit"=>[0,3]
+    ));
 
 /* get SOCIAL from DB */
-$social_query = "SELECT * FROM social WHERE sc_link !='' limit 0,10";
-$social = $db->DB_Query($social_query);
+$social = $db->DB_Select("social",array("where"=>["sc_link","!="," "]));
 
-/* UPDATE VISITE */
-$db->DB_Query("UPDATE settings SET sett_value=sett_value+1 WHERE sett_name='visits'");
+
+// update visitor
+$visit = $db->DB_Query("UPDATE settings SET sett_value=sett_value+1 WHERE sett_name='visits'");
+
 // View
 $view->view("index",array(
-	"key"=>array(),
-	"title"=>"index",
-	"Des"=>"",
-	// send queries to view files
-	"social"=>$social,
-	"info"=>$info
+    "key"=>$db->getSettingVal("site_keywords"),
+    "title"=>"index",
+    "Des"=>$db->getSettingVal("site_descrip"),
+    "social"=>$social,
+    "info"=>$info
 ));
+
+$db->DB_Free($social);
+$db->DB_Free($info);

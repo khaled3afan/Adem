@@ -1,11 +1,6 @@
-<?php
-$getCode = $Meta->getSettingVal('google_code');
-if(isset($getCode) && $getCode != ""){
-    ?>
+
 <!-- GOOGLE CODE -->
 <?php
-    echo $getCode;
+TMPL_getGoogleCode();
 ?>
 <!-- END GOOGLE CODE -->
-<?php
-}

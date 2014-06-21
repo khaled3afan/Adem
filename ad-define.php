@@ -10,11 +10,23 @@
 
 define("ASB_PATH",__DIR__);
 
-include ASB_PATH.DIRECTORY_SEPARATOR."db.php";
+include ASB_PATH.DIRECTORY_SEPARATOR."ad-config.php";
 include ASB_PATH.DIRECTORY_SEPARATOR."ad-includes".DIRECTORY_SEPARATOR."class.AD_AutoLoader.php";
 include ASB_PATH.DIRECTORY_SEPARATOR."ad-includes".DIRECTORY_SEPARATOR."function.php";
 
 $a = new AD_AutoLoader(ASB_PATH.DIRECTORY_SEPARATOR."ad-includes");
+
+// Check installer 
+// if install folder be there this main script not work! , if not found it main script work!
+
+$FD_Define = new AD_Folders;
+$dires = $FD_Define->getDirs("./");
+if(in_array("install",$dires)){
+    header("location: install");
+    die;
+}
+
+
 $DB_Define = new AD_Query;
 
 /* رابط الموقع */

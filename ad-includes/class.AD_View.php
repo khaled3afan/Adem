@@ -28,7 +28,7 @@ class AD_View {
 
     public function __construct($theme_name = null,$dir=null,$ex = null){
         if($dir == null){
-            $dir = "ad-content/ad-themes";
+            $dir = "ad-content".DIRECTORY_SEPARATOR."ad-themes";
         }
         if($ex == null){
             $ex = ".php";
@@ -89,22 +89,48 @@ class AD_View {
             }else{
                 extract($vars);
             }
-            $pTitle = $title;
-            $pDes = $Des;
-            $pKey = $key;
             
+            // PAGE important INFO
+            $pTitle = isset($title) ? $title : null;
+            $pDes = isset($Des) ? $Des : null;
+            $pKey = isset($key) ? $key : null;
+            
+            // SET AS Globals FOR TEMPLATE Functions!
+            $GLOBALS['pTitle'] = $pTitle;
+            $GLOBALS['pDes']= $pDes;
+            $GLOBALS['pKey'] = $pKey;
+            
+           
+            
+            // include Template Functions!
+            //if($this->dir != ASB_PATH.DIRECTORY_SEPARATOR."ad-admin".DIRECTORY_SEPARATOR."ad-admin-style".DIRECTORY_SEPARATOR){
+                
+            if(strpos($this->dir,"ad-themes")){
+                include ASB_PATH.DIRECTORY_SEPARATOR."ad-includes".DIRECTORY_SEPARATOR."template-functions.php";
+                 // SOME Classes NEEDED!
+                $AD_Query = new AD_Query;
+            
+                // SET Classes AS Globals FOR TEMPLATE Functions!
+                $GLOBALS['AD_Query'] = $AD_Query;
+            }elseif(strpos($this->dir,"ad-admin-style")){
+                //include ASB_PATH.DIRECTORY_SEPARATOR."ad-admin".DIRECTORY_SEPARATOR."admin-inculdes".DIRECTORY_SEPARATOR."tmpl-admin-function.php";
+            }
+            // START RENDER!
             ob_start();
-            
+            // File Render!
             require $file;
-            
+            // Rendered! , Return values!!
             return ob_get_clean();
         }else{
             $this->Error("لم يتم العثور على ملف العرض ."."<br/>"."مسار الملف المفترض عرضه : ".$file);
         }
     }
     
-    
-    
+   /**
+    * 
+    * @param type $var
+    * @param type $value
+    */ 
     public function set($var, $value = null){
         $var = is_array($var) ? $var : array($var => $value);
         $this->vars = array_merge((array) $this->vars, $var);

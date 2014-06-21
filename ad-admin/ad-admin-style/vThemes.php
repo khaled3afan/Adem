@@ -2,19 +2,13 @@
 $DB_HOME = new AD_Query;
 ?>
 <div class="admin_body">
-    <ul class="nav nav-tabs">
-        <li><a href="<?php _e(SITE_URL)?>/ad-admin/">أهلًا!</a></li>
-        <li><a href="<?php _e(SITE_URL)?>/ad-admin/edit">بيانات الواجهة</a></li>
-        <li class="active"><a href="<?php _e(SITE_URL)?>/ad-admin/themes">القوالب</a></li>
-        <li><a href="<?php _e(SITE_URL)?>/ad-admin/settings">الإعدادات</a></li>
-    </ul>
+    <?php admin_tabs("themes") ?>
     <div class="content">
         <div class="tab-content">
-            <div class="alert alert-warning" style="font-size: 12px;">لمعرفة كيفية إضافة قوالب جديدة يرجى قراءة هذا المستند : <a href="http://github.com/4FSB/adem">[ أديم ]  إضافة قوالب جديدة .</a></div>
+            <div class="alert alert-warning" style="font-size: 12px;">لمعرفة كيفية إضافة قوالب جديدة يرجى قراءة هذا المستند : <a href="//adem.faares.com/docs/">[ أديم ]  إضافة قوالب جديدة .</a></div>
             <div class="container" style="width: 100%">
                 <?php
                 if(isset($return)){
-
                     if($return['success'] == 1){
                 ?>
                 <div class="alert alert-success">تمت العملية بنجاح!</div>
